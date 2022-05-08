@@ -26,6 +26,7 @@ jobs:
         run: ./mvnw -B package
   
   test:
+    runs-on: ubuntu-latest
     steps:
       - name: Testing project
         run: ./mvnw test
