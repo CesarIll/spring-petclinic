@@ -1,3 +1,9 @@
+# Continuous Integration Final Project
+## By: Cesar Illanes
+
+The project already came with a pipeline called maven-build.yml that included:
+
+```
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
@@ -24,3 +30,6 @@ jobs:
           cache: maven
       - name: Build with Maven Wrapper
         run: ./mvnw -B package
+```
+
+I changed the file name to main-workflow.yml and its content to meet the requirements
