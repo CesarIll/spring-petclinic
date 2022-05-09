@@ -3,13 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <servers>
     <server>
-      <username>cesarill99@gmail.com</username>
-      <password>AKCp8mYoUfKyeUUGmHK6mC39gT64XCipaWukQ66kYAsPjcRH8NZPH2gTjsV5AvEphc87pFEpg</password>
+      <username>github-user</username>
+      <password>${env.ARTIFACTORY_TOKEN_REF}</password>
       <id>central</id>
     </server>
     <server>
       <username>cesarill99@gmail.com</username>
-      <password>AKCp8mYoUfKyeUUGmHK6mC39gT64XCipaWukQ66kYAsPjcRH8NZPH2gTjsV5AvEphc87pFEpg</password>
+      <password>${env.ARTIFACTORY_TOKEN_REF}</password>
       <id>snapshots</id>
     </server>
   </servers>

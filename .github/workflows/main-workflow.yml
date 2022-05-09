@@ -25,11 +25,12 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: maven
-      - name: Moving settings.xml file to correct place
-        run: |
-          cat ~/.m2/settings.xml
-          mv ./settings.xml ~/.m2/settings.xml
-          cat ~/.m2/settings.xml
+          settings-path: .
+      #- name: Moving settings.xml file to correct place
+      #  run: |
+      #    cat ~/.m2/settings.xml
+      #    mv ./settings.xml ~/.m2/settings.xml
+      #    cat ~/.m2/settings.xml
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
@@ -68,5 +69,7 @@ jobs:
         run: |
           mvn -B package --file pom.xml
       - name: Deploy
+        env:
+            ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
         run: |
           mvn deploy
