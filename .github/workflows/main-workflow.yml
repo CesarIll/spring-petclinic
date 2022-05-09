@@ -25,12 +25,11 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: maven
-          settings-path: .
-      #- name: Moving settings.xml file to correct place
-      #  run: |
-      #    cat ~/.m2/settings.xml
-      #    mv ./settings.xml ~/.m2/settings.xml
-      #    cat ~/.m2/settings.xml
+      - name: Moving settings.xml file to correct place
+        run: |
+          cat ~/.m2/settings.xml
+          mv ./settings.xml ~/.m2/settings.xml
+          cat ~/.m2/settings.xml
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
