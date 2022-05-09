@@ -32,4 +32,13 @@ jobs:
         run: ./mvnw -B package
 ```
 
-I changed the file name to main-workflow.yml and its content to meet the requirements
+I changed the file name to main-workflow.yml and its content to meet the requirements.
+* Added the ```./mvnw run``` command\
+* Signed in into SonalCloud, create an organization and then added this repository as a project. It automatically scanned as you can see in the next screenshot.
+  * As you can see in the picture, it recommends to change to the CI-based analysis, so that was my next step.
+<img width="1042" alt="sonarcloud-automatic-screenshot" src="./screenshots/sonarcloud-automatic.png">
+* I set-up the SONAT_TOKEN secret in GitHub Actions, added properties in pom.xml, added some lines to the workflow and disabled the automatic analysis.
+* The sonarcloud-bot replied on the pull request made for the test and analysis job.
+<img width="1042" alt="sonarcloud-bot-screenshot" src="./screenshots/sonarcloud-bot-comment.png">
+* The quality gate showed that it passed.
+<img width="1042" alt="sonarcloud-quality-gate" src="./screenshots/sonarcloud-quality-gate.png">
