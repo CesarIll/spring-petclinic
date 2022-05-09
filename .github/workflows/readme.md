@@ -32,4 +32,7 @@ jobs:
         run: ./mvnw -B package
 ```
 
-I changed the file name to main-workflow.yml and its content to meet the requirements
+I changed the file name to main-workflow.yml and its content to meet the requirements.
+* Added the ```./mvnw run``` command\
+* I signed in into SonalCloud, create an organization and then added this repository as a project. The moment it started  
+<img width="1042" alt="sonarcloud-automatic-screenshot" src="./screenshots/sonarcloud-automatic.png">
