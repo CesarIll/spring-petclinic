@@ -71,4 +71,4 @@ jobs:
         env:
             ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
         run: |
-          mvn deploy
+          mvn deploy -Dmaven.test.skip=true
