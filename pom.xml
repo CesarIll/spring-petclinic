@@ -11,6 +11,19 @@
     <tag>HEAD</tag>
   </scm>
 
+  <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>a0bwk5aowbovh-artifactory-primary-0-releases</name>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0bwk5aowbovh-artifactory-primary-0-snapshots</name>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -238,7 +251,7 @@
         </configuration>
       </plugin>
       
-      <!-- Plugin for Artifactory -->
+      <!-- Plugin for Artifactory 
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <version>3.0.0-M1</version>
@@ -269,6 +282,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
     </plugins>
   </build>
 
@@ -435,7 +449,7 @@
         </pluginManagement>
       </build>
     </profile>
-    <!-- Profile for Artifactory -->
+    <!-- Profile for Artifactory
     <profile>
     <id>github-actions</id>
     <activation>
@@ -479,6 +493,7 @@
       </pluginRepository>
     </pluginRepositories>
   </profile>
+  -->
   </profiles>
 
 </project>

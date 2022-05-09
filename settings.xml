@@ -4,12 +4,12 @@
   <servers>
     <server>
       <username>cesarill99@gmail.com</username>
-      <password>${{JFROG_PASSWORD}}</password>
+      <password>${{secrets.JFROG_PASSWORD}}</password>
       <id>central</id>
     </server>
     <server>
       <username>cesarill99@gmail.com</username>
-      <password>${{JFROG_PASSWORD}}</password>
+      <password>${{secrets.JFROG_PASSWORD}}</password>
       <id>snapshots</id>
     </server>
   </servers>
