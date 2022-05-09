@@ -61,4 +61,3 @@ jobs:
            ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
            BUILD_ENV: 'github-actions'
         run: mvn -B package --file pom.xml
- 
