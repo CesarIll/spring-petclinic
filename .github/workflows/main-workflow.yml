@@ -66,4 +66,4 @@ jobs:
       #     BUILD_ENV: 'github-actions'
         run: |
           mvn -B package --file pom.xml
-          mvn deploy -e
+          mvn -X deploy
