@@ -44,3 +44,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=CesarIll_spring-petclinic -Dsonar.qualitygate.wait=true
+      - name: Setup Maven settings.xml
+        uses: whelk-io/maven-settings-xml-action@v11
+        with:
+          servers: |
+            [
+              {
+                "id": "artifactory",
+                "username": "${env.ARTIFACTORY_USERNAME_REF}",
+                "password": "${env.ARTIFACTORY_TOKEN_REF}"
+              }
+            ]
+     - name: Build with Maven
+       env:
+          ARTIFACTORY_USERNAME_REF: "stream-github-actions"
+          ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+          BUILD_ENV: 'github-actions'
+       run: mvn -B package --file pom.xml
