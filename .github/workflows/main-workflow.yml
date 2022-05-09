@@ -66,4 +66,5 @@ jobs:
       #     BUILD_ENV: 'github-actions'
         run: |
           mvn -B package --file pom.xml
-          mvn -X deploy
+          mvn -s ~/.m2/settings.xml
+          mvn deploy
