@@ -59,12 +59,14 @@ jobs:
       #          "password": "${env.ARTIFACTORY_TOKEN_REF}"
       #        }
       #      ]
-      - name: Build and deploy with Maven
+      - name: Build with Maven
       #  env:
       #     ARTIFACTORY_USERNAME_REF: "github"
       #     ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
       #     BUILD_ENV: 'github-actions'
         run: |
           mvn -B package --file pom.xml
-          mvn -s ~/.m2/settings.xml
+      - name: Deploy
+        run: |
+          mvn -s ~/.m2/settings.xml clean install
           mvn deploy
