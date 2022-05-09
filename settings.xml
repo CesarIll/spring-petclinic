@@ -3,13 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <servers>
     <server>
-      <username>cesarill99@gmail.com</username>
-      <password>${{secrets.JFROG_PASSWORD}}</password>
+      <username>github</username>
+      <password>${{secrets.ARTIFACTORY_TOKEN}}</password>
       <id>central</id>
     </server>
     <server>
-      <username>cesarill99@gmail.com</username>
-      <password>${{secrets.JFROG_PASSWORD}}</password>
+      <username>github</username>
+      <password>${{secrets.ARTIFACTORY_TOKEN}}</password>
       <id>snapshots</id>
     </server>
   </servers>
