@@ -448,7 +448,7 @@
       <repository>
         <id>artifactory</id>
         <name>your-artifactory</name>
-        <url>https://your-artifactory.jfrog.io/artifactory/libs-release-local</url>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
         <releases>
           <enabled>true</enabled>
         </releases>
@@ -461,7 +461,7 @@
       <pluginRepository>
         <id>artifactory</id>
         <name>your-artifactory</name>
-        <url>https://your-artifactory.jfrog.io/artifactory/libs-release-local</url>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
         <releases>
           <enabled>true</enabled>
         </releases>
