@@ -27,7 +27,7 @@ jobs:
           cache: maven
       - name: Moving settings.xml file to correct place
         run: |
-          mv ./setting.xml ~/.m2/settings.xml
+          mv ./settings.xml ~/.m2/settings.xml
           ls -a ~/.m2/
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
