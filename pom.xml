@@ -259,11 +259,11 @@
             </goals>
             <configuration>
               <publisher>
-                <contextUrl>https://cesarillanes.jfrog.io/artifactory</contextUrl>
+                <contextUrl>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</contextUrl>
                 <username>github</username>
-                <password>${env.ARTIFACTORY_TOKEN}</password>
-                <repoKey>default-maven-local</repoKey>
-                <snapshotRepoKey>default-maven-local</snapshotRepoKey>
+                <password>${env.ARTIFACTORY_TOKEN_REF}</password>
+                <repoKey>default-maven-virtual</repoKey>
+                <snapshotRepoKey>default-maven-virtual</snapshotRepoKey>
               </publisher>
             </configuration>
           </execution>
@@ -448,7 +448,7 @@
       <repository>
         <id>artifactory</id>
         <name>your-artifactory</name>
-        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
         <releases>
           <enabled>true</enabled>
         </releases>
@@ -461,7 +461,7 @@
       <pluginRepository>
         <id>artifactory</id>
         <name>your-artifactory</name>
-        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
         <releases>
           <enabled>true</enabled>
         </releases>
