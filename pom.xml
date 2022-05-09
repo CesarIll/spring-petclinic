@@ -272,9 +272,9 @@
             </goals>
             <configuration>
               <publisher>
-                <contextUrl>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</contextUrl>
-                <username>github</username>
-                <password>${env.ARTIFACTORY_TOKEN_REF}</password>
+                <contextUrl>https://cesarillanes.jfrog.io/artifactory/</contextUrl>
+                <username>cesarill99@gamil.com</username>
+                <password>${{secrets.JFROG_PASSWORD}}</password>
                 <repoKey>default-maven-virtual</repoKey>
                 <snapshotRepoKey>default-maven-virtual</snapshotRepoKey>
               </publisher>
