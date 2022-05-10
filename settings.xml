@@ -5,10 +5,10 @@
     <server>
       <username>github-user</username>
       <password>${env.ARTIFACTORY_TOKEN_REF}</password>
-      <id>central</id>
+      <id>central-artifactory</id>
     </server>
     <server>
-      <username>cesarill99@gmail.com</username>
+      <username>github-user</username>
       <password>${env.ARTIFACTORY_TOKEN_REF}</password>
       <id>snapshots</id>
     </server>
@@ -20,7 +20,7 @@
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
-          <id>central</id>
+          <id>central-artifactory</id>
           <name>default-maven-virtual</name>
           <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
         </repository>
@@ -36,7 +36,7 @@
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
-          <id>central</id>
+          <id>central-artifactory</id>
           <name>default-maven-virtual</name>
           <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
         </pluginRepository>
