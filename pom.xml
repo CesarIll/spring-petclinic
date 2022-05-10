@@ -13,7 +13,7 @@
 
   <distributionManagement>
     <repository>
-        <id>central</id>
+        <id>central-artifactory</id>
         <name>a0bwk5aowbovh-artifactory-primary-0-releases</name>
         <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
     </repository>
