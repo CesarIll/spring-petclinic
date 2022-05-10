@@ -19,13 +19,16 @@
         <repository>
           <snapshots>
             <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
           </snapshots>
           <id>central-artifactory</id>
           <name>default-maven-virtual</name>
           <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
         </repository>
         <repository>
-          <snapshots />
+          <snapshots>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
           <id>snapshots</id>
           <name>default-maven-virtual</name>
           <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
@@ -35,13 +38,16 @@
         <pluginRepository>
           <snapshots>
             <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
           </snapshots>
           <id>central-artifactory</id>
           <name>default-maven-virtual</name>
           <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
         </pluginRepository>
         <pluginRepository>
-          <snapshots />
+          <snapshots>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
           <id>snapshots</id>
           <name>default-maven-virtual</name>
           <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
