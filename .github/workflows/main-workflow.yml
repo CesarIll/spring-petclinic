@@ -37,6 +37,11 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+      - name: Moving settings.xml file to correct place
+        run: |
+          cat ~/.m2/settings.xml
+          mv ./settings.xml ~/.m2/settings.xml
+          cat ~/.m2/settings.xml
       - name: Test
         run: ./mvnw test
       - name: Build and analyze
@@ -44,3 +49,34 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=CesarIll_spring-petclinic -Dsonar.qualitygate.wait=true
+      #- name: Setup Maven settings.xml
+      #  uses: whelk-io/maven-settings-xml-action@v11
+      #  with:
+      #    servers: |
+      #      [
+      #        {
+      #          "id": "artifactory",
+      #          "username": "${env.ARTIFACTORY_USERNAME_REF}",
+      #          "password": "${env.ARTIFACTORY_TOKEN_REF}"
+      #        }
+      #      ]
+      - name: Build with Maven
+      #  env:
+      #     ARTIFACTORY_USERNAME_REF: "github"
+      #     ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+      #     BUILD_ENV: 'github-actions'
+        run: |
+          mvn -B package -Dmaven.test.skip=true --file pom.xml
+      - name: Gitleaks
+        uses: zricethezav/gitleaks-action@master
+      #- name: Snyk
+      #  uses: snyk/actions/maven@master
+      #  env:
+      #    SNYK_TOKEN: $ {{ secrets.SNYK_TOKEN }}
+      - name: Deploy
+        env:
+            ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+        run: |
+          mvn deploy -Dmaven.test.skip=true
+        continue-on-error: true
+      

@@ -5,6 +5,25 @@
   <artifactId>spring-petclinic</artifactId>
   <version>2.6.0-SNAPSHOT</version>
 
+  <scm>
+    <developerConnection>scm:git:https://github.com/CesarIll/spring-petclinic.git</developerConnection>
+    <url>https://github.com/CesarIll/spring-petclinic</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+        <id>central-artifactory</id>
+        <name>a0bwk5aowbovh-artifactory-primary-0-releases</name>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0bwk5aowbovh-artifactory-primary-0-snapshots</name>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -30,6 +49,9 @@
     <!-- SonarQube properties -->
     <sonar.organization>cesarill-petclinic</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
+    <!-- JFrog properties -->
+    <project.scm.id>github</project.scm.id>
 
   </properties>
 
@@ -228,7 +250,39 @@
           <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
         </configuration>
       </plugin>
-
+      
+      <!-- Plugin for Artifactory 
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jfrog.buildinfo</groupId>
+        <artifactId>artifactory-maven-plugin</artifactId>
+        <version>3.4.0</version>
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>build-info</id>
+            <goals>
+              <goal>publish</goal>
+            </goals>
+            <configuration>
+              <publisher>
+                <contextUrl>https://cesarillanes.jfrog.io/artifactory/</contextUrl>
+                <username>cesarill99@gamil.com</username>
+                <password>${{secrets.JFROG_PASSWORD}}</password>
+                <repoKey>default-maven-virtual</repoKey>
+                <snapshotRepoKey>default-maven-virtual</snapshotRepoKey>
+              </publisher>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      -->
     </plugins>
   </build>
 
@@ -395,6 +449,51 @@
         </pluginManagement>
       </build>
     </profile>
+    <!-- Profile for Artifactory
+    <profile>
+    <id>github-actions</id>
+    <activation>
+      <property>
+        <name>env.BUILD_ENV</name>
+        <value>github-actions</value>
+      </property>
+    </activation>
+    <repositories>
+      <repository>
+        <id>artifactory</id>
+        <name>your-artifactory</name>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>artifactory</id>
+        <name>your-artifactory</name>
+        <url>https://cesarillanes.jfrog.io/artifactory/default-maven-virtual</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </pluginRepository>
+      <pluginRepository>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <id>central</id>
+        <name>bintray-plugins</name>
+        <url>https://jcenter.bintray.com</url>
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+  -->
   </profiles>
 
 </project>
