@@ -66,9 +66,9 @@ jobs:
       #     ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
       #     BUILD_ENV: 'github-actions'
         run: |
-          mvn -B package --file pom.xml
+          mvn -B package -Dmaven.test.skip=true --file pom.xml
       - name: Deploy
         env:
-            ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+            ARTIFACTORY_TOKEN_REF: ${{ secrets.JFROG_PASSWORD }}
         run: |
-          mvn deploy
+          mvn deploy -Dmaven.test.skip=true

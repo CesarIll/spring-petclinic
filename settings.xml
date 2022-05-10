@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <servers>
     <server>
-      <username>github-user</username>
+      <username>cesarill99@gmail.com</username>
       <password>${env.ARTIFACTORY_TOKEN_REF}</password>
       <id>central-artifactory</id>
     </server>
     <server>
-      <username>github-user</username>
+      <username>cesarill99@gmail.com</username>
       <password>${env.ARTIFACTORY_TOKEN_REF}</password>
       <id>snapshots</id>
     </server>
