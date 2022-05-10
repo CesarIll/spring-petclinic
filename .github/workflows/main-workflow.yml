@@ -71,4 +71,4 @@ jobs:
         env:
             ARTIFACTORY_TOKEN_REF: ${{ secrets.JFROG_PASSWORD }}
         run: |
-          mvn deploy -Dmaven.test.skip=true
+          mvn deploy -Dmaven.test.skip=true -e -X
