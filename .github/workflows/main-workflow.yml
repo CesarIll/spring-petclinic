@@ -69,6 +69,6 @@ jobs:
           mvn -B package -Dmaven.test.skip=true --file pom.xml
       - name: Deploy
         env:
-            ARTIFACTORY_TOKEN_REF: ${{ secrets.JFROG_PASSWORD }}
+            ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
         run: |
-          mvn deploy -Dmaven.test.skip=true -e -X
+          mvn deploy -Dmaven.test.skip=true
