@@ -67,8 +67,15 @@ jobs:
       #     BUILD_ENV: 'github-actions'
         run: |
           mvn -B package -Dmaven.test.skip=true --file pom.xml
+      - name: Gitleaks
+        uses: zricethezav/gitleaks-action@master
+      - name: Snyk
+        uses: snyk/actions/maven@master
+        env:
+          SNYK_TOKEN: $ {{ secrets.SNYK_TOKEN }}
       - name: Deploy
         env:
             ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
         run: |
           mvn deploy -Dmaven.test.skip=true
+      
